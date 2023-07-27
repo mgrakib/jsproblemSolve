@@ -30,22 +30,60 @@
 // }
 // sumOfPositiveNumber()
 
-const frequentlyArray = [3, 5, 2, 5, 3, 3, 1, 4, 5];
+// const frequentlyArray = [3, 5, 2, 5, 3, 3, 1, 4, 5];
 
-function findFrequentlyNumber() {
-	const frequentlyObj = {};
-	for (const item of frequentlyArray) {
-		frequentlyObj[item] = (frequentlyObj[item] || 0) + 1;
+// function findFrequentlyNumber() {
+// 	const frequentlyObj = {};
+// 	for (const item of frequentlyArray) {
+// 		frequentlyObj[item] = (frequentlyObj[item] || 0) + 1;
+// 	}
+
+// 	let max = 0;
+// 	console.log(frequentlyObj);
+// 	for (const key in frequentlyObj) {
+// 		if (max < frequentlyObj[key]) {
+// 			max = key;
+// 		}
+// 	}
+
+// 	console.log(max);
+// }
+// findFrequentlyNumber();
+
+
+
+
+
+// calculator 
+
+
+const calculator = () => {
+	const firstNumber = parseFloat(
+		document.getElementById("firstNumber").value
+	);
+	const secondNumber = parseFloat(
+		document.getElementById("secondNumber").value
+	);
+	const operator = document.getElementById("operator").value;
+	const formate = `${firstNumber} ${operator} ${secondNumber}`
+	
+	let value = 0;
+	if (operator === "+") {
+		console.log('first')
+		value = firstNumber + secondNumber;
+	} else if (operator === "-") {
+		value = firstNumber - secondNumber;
+	} else if (operator === "*") {
+		value = firstNumber * secondNumber;
+	} else if (operator === "/") {
+		value = firstNumber / secondNumber;
 	}
 
-	let max = 0;
-	console.log(frequentlyObj);
-	for (const key in frequentlyObj) {
-		if (max < frequentlyObj[key]) {
-			max = key;
-		}
-	}
-
-	console.log(max);
+	document.getElementById("firstNumber").value = ''
+	document.getElementById("secondNumber").value = "";
+	document.getElementById("operator").value = "";
+	
+	document.getElementById("displayCalculator").innerText = formate;
+	document.getElementById("displayResult").innerText = value;
 }
-findFrequentlyNumber();
+document.getElementById("calculatorBtn").addEventListener("click", calculator);
